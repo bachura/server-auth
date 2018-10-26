@@ -11,12 +11,11 @@ var VerifyToken = require('./VerifyToken');
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-router.post('/register', function(req, res) {
+router.post('/registration', function(req, res) {
   
-    var hashedPassword = bcrypt.hashSync(req.body.password, 10);
+    // var hashedPassword = bcrypt.hashSync(req.body.password, 10);
     
     User.create({
-      name : req.body.name,
       email : req.body.email,
       password : hashedPassword
     },
